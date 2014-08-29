@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boopup demo</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body>
+
+<div class="container jumbotron" style="margin-top:100px;">
+    <h1>Hello, world!</h1>
+    <p>Use the buttons bellow to open different popups reimplemented using bootstrap modal:</p>
+    <button class="btn btn-primary btn-lg" onclick="showAlert()">Alert</button>
+    <button class="btn btn-primary btn-lg" onclick="showConfirm()">Confirm</button>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="/dist/boopup.js"></script>
+
+<script>
+    $(function() {
+        showAlert = function() {
+            Boopup.alert("This is a boopup alert!");
+        }
+        showConfirm = function() {
+            Boopup.confirm("This is a boopup confirm!", function(result) {
+                console.log(result);
+            })
+        }
+    });
+</script>
+
+</body>
+</html>
