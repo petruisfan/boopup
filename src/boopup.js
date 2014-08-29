@@ -24,7 +24,7 @@
                     this.callback(response);
                 }
             }
-        }
+        };
     }();
 
 } ());

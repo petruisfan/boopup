@@ -7,13 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache2",
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-concat": "^2.3.4",
+    "gulp-header": "^1.0.5",
+    "gulp-jshint": "^1.8.4",
+    "gulp-minify-html": "^0.1.4",
     "gulp-sourcemaps": "^1.1.2",
     "gulp-uglify": "^0.3.2",
-    "rimraf": "^2.2.8",
-    "gulp-minify-html": "^0.1.4"
+    "rimraf": "^2.2.8"
   }
 }

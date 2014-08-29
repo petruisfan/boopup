@@ -4,7 +4,7 @@
   "authors": [
     "Petru Isfan <petru.isfan@gmail.com>"
   ],
-  "license": "MIT",
+  "license": "Apache2",
   "ignore": [
     "**/.*",
     "node_modules",
