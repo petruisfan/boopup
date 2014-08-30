@@ -11,14 +11,16 @@ var header = require("gulp-header");
 var paths = {
     dist: "dist"
 };
-
-var copyright = "/* Copyright Petru Isfan | Released under the Apache2 license */\n";
-
+var pkg = require('./package.json');
+var copyright = "/**\n" +
+    " * Copyright Petru Isfan | Released under the Apache2 license\n" +
+    " * Version: " + pkg.version + "\n" +
+    " */\n";
 
 gulp.task('js', function () {
     gulp.src(['src/**/*.js'])
         .pipe(sourcemaps.init())
-        .pipe(concat('boopup.js'))
+        .pipe(concat('boopup.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write("."))
         .pipe(header(copyright))

@@ -12,21 +12,27 @@
     <p>Use the buttons bellow to open different popups reimplemented using bootstrap modal:</p>
     <button class="btn btn-primary btn-lg" onclick="showAlert()">Alert</button>
     <button class="btn btn-primary btn-lg" onclick="showConfirm()">Confirm</button>
+    <button class="btn btn-primary btn-lg" onclick="showPrompt()">Prompt</button>
 </div>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
-<script src="/dist/boopup.js"></script>
+<script src="/dist/boopup.min.js"></script>
 
 <script>
     $(function() {
         showAlert = function() {
             Boopup.alert("This is a boopup alert!");
-        }
+        };
         showConfirm = function() {
-            Boopup.confirm("This is a boopup confirm!", function(result) {
-                console.log(result);
+            Boopup.confirm("This is a boopup confirm!", function(agree) {
+                console.log(agree);
+            })
+        };
+        showPrompt = function() {
+            Boopup.prompt("This is a boopup prompt!", function(input) {
+                console.log(input);
             })
         }
     });
