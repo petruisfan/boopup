@@ -53,9 +53,10 @@ gulp.task('clean', function (cb) {
     rimraf(paths.dist, cb);
 });
 
-gulp.task('watch', ['js'], function () {
+gulp.task('watch', [], function () {
     gulp.watch('src/**/*.js', ['js']);
     gulp.watch('src/**/*.html', ['html']);
+    gulp.watch('src/**/*.css', ['css']);
 });
 
 gulp.task("default", ["clean", "lint", "html", "js", "css"]);
