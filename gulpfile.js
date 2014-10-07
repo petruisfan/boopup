@@ -7,6 +7,9 @@ var rimraf = require('rimraf');
 var minifyHtml = require("gulp-minify-html");
 var jshint = require("gulp-jshint");
 var header = require("gulp-header");
+var concatCss = require('gulp-concat-css');
+var minifyCSS = require('gulp-minify-css');
+
 
 var paths = {
     dist: "dist"
@@ -33,6 +36,13 @@ gulp.task('html', function () {
         .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('css', function () {
+    gulp.src('src/**/*.css')
+        .pipe(concatCss("boopup.min.css"))
+        .pipe(minifyCSS())
+        .pipe(gulp.dest(paths.dist));
+});
+
 gulp.task('lint', function () {
     gulp.src('src/**/*.js') // path to your files
         .pipe(jshint())
@@ -48,4 +58,4 @@ gulp.task('watch', ['js'], function () {
     gulp.watch('src/**/*.html', ['html']);
 });
 
-gulp.task("default", ["clean", "lint", "html", "js"]);
+gulp.task("default", ["clean", "lint", "html", "js", "css"]);
