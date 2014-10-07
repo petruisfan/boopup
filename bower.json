@@ -1,6 +1,6 @@
 {
     "name": "boopup",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "src/boopup.js",
     "authors": [
         "Petru Isfan <petru.isfan@gmail.com>"
