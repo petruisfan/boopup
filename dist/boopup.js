@@ -1,3 +1,7 @@
+/**
+ * Copyright Petru Isfan | Released under the Apache2 license
+ * Version: 1.0.0
+ */
 
 (function() {
     'use strict';

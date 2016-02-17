@@ -20,12 +20,19 @@ var copyright = "/**\n" +
     " * Version: " + pkg.version + "\n" +
     " */\n";
 
-gulp.task('js', function () {
+gulp.task('jsmin', function () {
     gulp.src(['src/**/*.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('boopup.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write("."))
+        .pipe(header(copyright))
+        .pipe(gulp.dest( paths.dist ));
+});
+
+gulp.task('js', function () {
+    gulp.src(['src/**/*.js'])
+        .pipe(concat('boopup.js'))
         .pipe(header(copyright))
         .pipe(gulp.dest( paths.dist ));
 });
@@ -36,12 +43,19 @@ gulp.task('html', function () {
         .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('css', function () {
+gulp.task('cssmin', function () {
     gulp.src('src/**/*.css')
         .pipe(concatCss("boopup.min.css"))
         .pipe(minifyCSS())
         .pipe(gulp.dest(paths.dist));
 });
+
+gulp.task('css', function () {
+    gulp.src('src/**/*.css')
+        .pipe(concatCss("boopup.css"))
+        .pipe(gulp.dest(paths.dist));
+});
+
 
 gulp.task('lint', function () {
     gulp.src('src/**/*.js') // path to your files
@@ -54,9 +68,9 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('watch', [], function () {
-    gulp.watch('src/**/*.js', ['js']);
+    gulp.watch('src/**/*.js', ['js', 'jsmin']);
     gulp.watch('src/**/*.html', ['html']);
-    gulp.watch('src/**/*.css', ['css']);
+    gulp.watch('src/**/*.css', ['css', 'cssmin']);
 });
 
-gulp.task("default", ["clean", "lint", "html", "js", "css"]);
+gulp.task("default", ["clean", "lint", "html", "js", "jsmin", "css", "cssmin"]);
